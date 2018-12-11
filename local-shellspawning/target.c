@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main(int argc, char *argv[]) {
-  int   flag=1;
+  int   flag=0;
   char  buf[256]={0};
   
   if (argc<=1) {
@@ -10,8 +10,10 @@ int main(int argc, char *argv[]) {
   }
   printf("%p\n", &buf);
   strcpy(buf, argv[1]);
-  flag = strcmp(buf, "p@ssw0rd!");
-  if (flag==0) {
+  if (strcmp(buf, "p@ssw0rd!")==0) {
+    flag = 1;
+  }
+  if (flag) {
     puts("correct!");
   } else {
     puts("wrong!");
